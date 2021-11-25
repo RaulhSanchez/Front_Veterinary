@@ -1,14 +1,16 @@
-import APIConsumer from "../../services/apiConsumer"
+import APIConsumer from "../../Services/apiConsumer"
 import { Navigate, useNavigate } from "react-router-dom"
+import store from "../../Store/store"
 
-const LoginUser = () => {    
-    const navigate = useNavigate()
+const LoginUser = () => {
     const handleChanges = async (e) => {
         e.preventDefault()
-        await APIConsumer.loginUser(JSON.stringify({email: e.target.email.value, password: e.target.password.value}))
-        navigate("/home")  
+        let result = await APIConsumer.loginUser(JSON.stringify({email: e.target.email.value, password: e.target.password.value}))
+       store.dispatch({
+            type:"LOGIN",
+            payload:result.data
+        })
     }
-
     return (
         <form className='add-form' onSubmit={(e)=>handleChanges(e)}>
             <div className='form-control'>

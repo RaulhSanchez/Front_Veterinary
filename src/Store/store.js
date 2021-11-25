@@ -1,15 +1,15 @@
 import {createStore} from "redux"
 
 const initalState = {
-    stateTipe:[]
+    userLogged: false
 }
 
 const reducer = (currentState = initalState, action) => {
     console.log(currentState,"Antes de cambiar el store")
-    if(action.type == "CHANGE_BUTTON"){
+    
+    if(action.type === "LOGIN"){
         return{
-            ...currentState,
-            button: currentState.button.concat(action.payload)
+            userLogged: action.payload
         }
     }
     return currentState
