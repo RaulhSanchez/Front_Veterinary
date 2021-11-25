@@ -8,6 +8,7 @@ import LoginPage from './Container/LoginPage/LoginPage';
 import LoginPets from './Container/LoginPets/LoginPets';
 import Pet from './Container/Pet/Pet';
 import RegisterUser from './Container/RegisterUser/RegisterUser';
+import UserProfile from './Container/UserProfile/UserProfile';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/home"element={<HomePage />} />
           <Route path="/login"element={<LoginPage />} />
           <Route path="/register"element={<RegisterUser />} />
+          <Route path="/profile"element={<UserProfile />} />
           <Route path="/appointment"element={<AppointmenPage />} />
           <Route path="/all"element={<AllPets />}/>
           <Route path="/pet"element={<Pet />}/>

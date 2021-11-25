@@ -2,11 +2,14 @@ import APIConsumer from "../../Services/apiConsumer"
 import { Navigate, useNavigate } from "react-router-dom"
 import store from "../../Store/store"
 
+
 const LoginUser = () => {
+    const navigate = useNavigate()
     const handleChanges = async (e) => {
         e.preventDefault()
         let result = await APIConsumer.loginUser(JSON.stringify({email: e.target.email.value, password: e.target.password.value}))
-       store.dispatch({
+        navigate("/profile")
+        store.dispatch({
             type:"LOGIN",
             payload:result.data
         })

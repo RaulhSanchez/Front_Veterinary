@@ -1,10 +1,10 @@
 import LoginUser from "../../Components/LoginUser/LoginUser";
-import LoginHeader from "../../Components/LoginHeader/LoginHeader";
+import Header from "../../Components/Header/Header";
 
 const LoginPage = () => {
     return(
         <>
-            <LoginHeader/>
+            <Header/>
             <LoginUser/>
         </>
     )
