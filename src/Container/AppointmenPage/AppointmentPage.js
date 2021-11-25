@@ -1,8 +1,10 @@
+import HeaderUser from "../../Components/HeaderUser/HeaderUser"
 
 
 const AppointmenPage = () => {
     return (
         <>
+        <HeaderUser />
         </>
     )
 }

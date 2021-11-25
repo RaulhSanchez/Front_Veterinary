@@ -1,6 +1,7 @@
 import APIConsumer from "../../Services/apiConsumer"
-import { Navigate, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import store from "../../Store/store"
+import ("./LoginUser.scss")
 
 
 const LoginUser = () => {
@@ -15,17 +16,17 @@ const LoginUser = () => {
         })
     }
     return (
-        <form className='add-form' onSubmit={(e)=>handleChanges(e)}>
-            <div className='form-control'>
-                <label>Email</label>
-                <input type='email' name='email' placeholder='Email' required />
+        <div>
+        <form className='buttonLogin' onSubmit={(e)=>handleChanges(e)}>
+            <div className='buttonLogin'>
+                <input className="buttonLogin" type='email' name='email' placeholder='Email' required />
             </div>
-            <div className='form-control'>
-                <label>Contraseña</label>
-                <input type='password' name='password' placeholder='Contraseña' required />
+            <div className='login-form'>
+                <input className="buttonLogin" type='password' name='password' placeholder='Contraseña' required />
             </div>    
-            <input type='submit' value='Login' className='btn btn-block' />
+            <input className="buttonLogin" type='submit' value='Login' className='btn btn-block' />
         </form>
+        </div>
     )
 }
 

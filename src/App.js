@@ -5,7 +5,6 @@ import AllPets from './Container/AllPets/AllPets';
 import AppointmenPage from './Container/AppointmenPage/AppointmentPage';
 import HomePage from './Container/HomePage/HomePage';
 import LoginPage from './Container/LoginPage/LoginPage';
-import LoginPets from './Container/LoginPets/LoginPets';
 import Pet from './Container/Pet/Pet';
 import RegisterUser from './Container/RegisterUser/RegisterUser';
 import UserProfile from './Container/UserProfile/UserProfile';
