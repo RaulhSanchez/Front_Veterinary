@@ -1,21 +1,24 @@
+import { useNavigate } from "react-router-dom"
 import APIConsumer from "../../Services/apiConsumer"
 
 
 const AddPet = () => {
+    const navigate = useNavigate()
     const handleChange = async(e) => {
         e.preventDefault()
-        await APIConsumer.registerPet(JSON.stringify({"name":e.target.name.value,"pet":e.taget.animal.value}))
+        await APIConsumer.registerPet(JSON.stringify({"name":e.target.name.value,"mascota":e.target.mascota.value}))
+        navigate("/pet")
     }
     return(
-        <form className="formPet" onSubmit={(e)=>handleChange(e)}>
+        <form className="form" onSubmit={(e) => handleChange(e)}>
+            <div className="form">            
+                <input type="text" name="name" placeholder="Añada su nombre" required/>
+            </div> 
+            <div className="form">            
+                <input type="text" name="mascota" placeholder="Añada su nombre" required/>
+            </div> 
             <div>
-                <input type="text" name="name" placeholder="Añada el nombre de su mascota"required/>
-            </div>
-            <div>
-                <input type="text" name="pet" placeholder="Añada qué animal es" required />
-            </div>
-            <div>
-                <input type="buttonLogin" type="submit" value="Login"/>
+                <input type="buttonLogin" type="submit" value="Añadir"/>
             </div>
         </form>
         

@@ -27,18 +27,18 @@ export const APIConsumer = {
         }
     },
 
-    registerPet: async (data) => {
-        try {
-            let result = await fetch("",{
-                method:"POST",
-                headers: {"Content-Type":"application/json"},
-                body:data
-            })
-        } catch (error) {
-            console.log(error)
+    registerPet:async (data) => {
+        try{
+            let result = await fetch('http://localhost:3000/pet/create',{
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            mode:"cors",
+            body: data
+        })
+        } catch (data){
+            console.log(data)
         }
-    }
-
+    },
     
 }
 

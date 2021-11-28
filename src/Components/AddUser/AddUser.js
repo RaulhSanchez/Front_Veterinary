@@ -7,7 +7,7 @@ const AddUser = () => {
     const navigate = useNavigate()
     const handleChange = async (e) => {
         e.preventDefault()
-        await APIConsumer.registerUser(JSON.stringify({"name":e.target.name.value ,"mail":e.target.mail.value,"password":e.target.password.value,/*"phone":e.target.phone.value,"age":e.target.age.value,"adress":e.target.adress.value*/}))
+        await APIConsumer.registerUser(JSON.stringify({"name":e.target.name.value ,"mail":e.target.mail.value,"password":e.target.password.value,"phone":e.target.phone.value,"age":e.target.age.value,"adress":e.target.adress.value}))
         navigate("/login")
     }
     return(
@@ -21,7 +21,7 @@ const AddUser = () => {
             <div className="form">
                 <input type="password" name="password" placeholder="Añada su contraseña" />
             </div>
-            {/* <div className="form">
+            <div className="form">
                 <input type="text" name="phone" placeholder="Añada su telefono" required/>
             </div>
             <div className="form">
@@ -29,7 +29,7 @@ const AddUser = () => {
             </div> 
             <div className="form">
                 <input type="text" name="adress" placeholder="Añada su direccion" required/>
-            </div>  */}
+            </div>
             <div className="form">
                 <input type="submit" value="Registrarse" className="btn"/>
             </div>
