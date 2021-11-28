@@ -39,6 +39,19 @@ export const APIConsumer = {
             console.log(data)
         }
     },
+
+    createAppointment:async (data) => {
+        try {
+            let result = await fetch("",{
+                method:"POST",
+                headers: {"Content-type": "application/json"},
+                mode:"cors",
+                body:data
+            })
+        } catch (data) {
+            console.log(data)
+        }
+    }
     
 }
 
