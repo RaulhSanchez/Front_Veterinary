@@ -8,11 +8,13 @@ const LoginUser = () => {
     const navigate = useNavigate()
     const handleChanges = async (e) => {
         e.preventDefault()
-        let result = await APIConsumer.loginUser(JSON.stringify({email: e.target.email.value, password: e.target.password.value}))
+        let result = await APIConsumer.loginUser(JSON.stringify({mail: e.target.email.value, password: e.target.password.value}))
+        console.log(result)
         navigate("/profile")
         store.dispatch({
             type:"LOGIN",
-            payload:result.data
+            payload:result.user.token,
+            userLogged:true
         })
     }
     return (
