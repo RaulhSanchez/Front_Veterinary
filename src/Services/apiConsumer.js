@@ -11,7 +11,8 @@ export const APIConsumer = {
                 body: data
             })
             result = await result.json() 
-            localStorage.setItem('token', result.hashDescoted.token)
+            console.log(result.hashDescoted)
+            localStorage.setItem('token', result.hashDescoted)
             return result 
         } catch(data){
             console.log(data)
@@ -32,18 +33,22 @@ export const APIConsumer = {
     },
 
     registerPet:async (data) => {
+
         try{
             let result = await fetch('http://localhost:3000/pet/create',{
-            method: "POST",
-            headers: {'Authorization': 'token'},
-            mode:"cors",
-            body: data
-        })
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    "token": localStorage.getItem("token")
+                },
+                mode:"cors",
+                body: data
+            })
         } catch (data){
             console.log(data)
         }
     },
-
+    
     createAppointment:async (data) => {
         try {
             let result = await fetch("",{

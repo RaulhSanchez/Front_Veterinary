@@ -1,4 +1,5 @@
 import {createStore} from "redux"
+import { devToolsEnhancer } from 'redux-devtools-extension';
 
 const initalState = {
     userLogged: false
@@ -15,4 +16,4 @@ const reducer = (currentState = initalState, action) => {
     return currentState
 }
 
-export default createStore(reducer)
+export default createStore(reducer, {}, devToolsEnhancer({ trace: true }))
