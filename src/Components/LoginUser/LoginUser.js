@@ -3,19 +3,22 @@ import { useNavigate } from "react-router-dom"
 import store from "../../Store/store"
 import ("./LoginUser.scss")
 
-
 const LoginUser = () => {
     const navigate = useNavigate()
     const handleChanges = async (e) => {
         e.preventDefault()
+        
         let result = await APIConsumer.loginUser(JSON.stringify({mail: e.target.email.value, password: e.target.password.value}))
-        console.log(result)
-        navigate("/profile")
-        store.dispatch({
-            type:"LOGIN",
-            payload:result.user.token,
-            userLogged:true
-        })
+        console.log(result, 'TOKEN' )
+        console.log(result.hashDescoted)
+        if(result.hashDescoted){
+            store.dispatch({
+                type:"LOGIN",
+                payload:result.hashDescoted.token,
+                userLogged:true
+            })
+            navigate("/profile")
+        }        
     }
     return (
         <div>

@@ -1,16 +1,20 @@
 export const APIConsumer = {
 
-    loginUser: async (user) => {
+    loginUser: async (data) => {
         try{
+            //let token = localStorage.getItem('token')
             let result = await fetch('http://localhost:3000/user/login', {
                 method: "POST",
-                headers: {'Content-Type': 'application/json'},
-                body: user
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: data
             })
-            result = await result.json()
+            result = await result.json() 
+            localStorage.setItem('token', result.hashDescoted.token)
             return result 
-        } catch(user){
-            console.log(user)
+        } catch(data){
+            console.log(data)
         }
     },
     
@@ -31,7 +35,7 @@ export const APIConsumer = {
         try{
             let result = await fetch('http://localhost:3000/pet/create',{
             method: "POST",
-            headers: {'Content-Type': 'application/json'},
+            headers: {'Authorization': 'token'},
             mode:"cors",
             body: data
         })

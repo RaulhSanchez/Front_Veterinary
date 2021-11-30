@@ -15,7 +15,7 @@ const AddPet = () => {
                 <input type="text" name="name" placeholder="Añada su nombre" required/>
             </div> 
             <div className="form">            
-                <input type="text" name="mascota" placeholder="Añada su nombre" required/>
+                <input type="text" name="mascota" placeholder="Que animal es" required/>
             </div> 
             <div>
                 <input type="buttonLogin" type="submit" value="Añadir"/>
