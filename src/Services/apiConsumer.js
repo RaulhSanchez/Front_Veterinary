@@ -48,12 +48,30 @@ export const APIConsumer = {
             console.log(data)
         }
     },
+    addPet:async (data) => {
+        try {
+            let result = await fetch("http://localhost:3000/pet/",{
+                method:"GET",
+                headers:{
+                    "Content-Type": "application/json",
+                    "token": localStorage.getItem("token")
+                },
+                mode:"cors",
+                body:data
+            })
+        } catch (data) {
+            console.log(data)
+        }
+    },
     
     createAppointment:async (data) => {
         try {
-            let result = await fetch("",{
+            let result = await fetch("http://localhost:3000/appointment/appointment",{
                 method:"POST",
-                headers: {"Content-type": "application/json"},
+                headers: {
+                    "Content-type": "application/json",
+                    "token": localStorage.getItem("token")
+                },
                 mode:"cors",
                 body:data
             })

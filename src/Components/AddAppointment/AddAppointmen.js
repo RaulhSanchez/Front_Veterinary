@@ -3,6 +3,7 @@ import APIConsumer from "../../Services/apiConsumer"
 
 const AddAppointment = () => {
     const handleChange = async (e) => {
+        e.preventDefault()
         await APIConsumer.createAppointment(JSON.stringify({"date":e.target.date.value}))
     }
     return(
@@ -17,4 +18,6 @@ const AddAppointment = () => {
     )
 
 }
+
+
 export default AddAppointment

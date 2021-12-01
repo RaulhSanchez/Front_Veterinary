@@ -8,7 +8,7 @@ const Pet = () => {
         <>
         <HeaderUser />
         <AddPet />
-        
+        <PetProfile />
         </>
     )
 }
