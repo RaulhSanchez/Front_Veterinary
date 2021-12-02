@@ -11,6 +11,7 @@ Este Frontend está basado en React como librería principal de JavaScript y Cre
 Para crear esta aplicación hemos utilizado un Backend externo al que nos conectamos a traves de los fetch(llamadas a la API),y nos genera un intercambio de datos entre el Front y el Back. Una vez creada esta union, generamos distintos tipos de llamadas a la API, tanto para enviar información (al crear un usuario) o para recibir(al entrar a tu perfil). 
 Además hemos segiudo un patrón para la estructura de carpetas, donde tenemos unarchivo componentes, en el que añadimos por separado cada componente de la aplicación(el Header, el Footer...).También esta la carpeta de Container, donde añadimos las páginas y en ellas los componentes de las que constan como se puede ver a continuación:
 
+![Archivos](https://github.com/RaulhSanchez/e-comerce/blob/master/Files.png)
 
 En la carpeta Services, hemos añadido el script apiConsumer.js que es el archivo que contiene las rutas para cominucarse con la API.En Store se encuntra el Reducer, que explicaremos en el siguiente apartado.
 
@@ -21,6 +22,8 @@ Una de las novedades de esta aplicación es la implementación de Redux y la ges
 ### Reducer
 
 Esta función es la que se encarga de gestionar los eventos. Cuando le llegue la acción que hayamos creado, mandará una está acción al componente que tenga que ejecutarla. Esto se consigue gracias al Dispatch, elemento que manda la acción, y al Suscribe, que es el que recibe esta acción.
+
+![Reducer](https://github.com/RaulhSanchez/e-comerce/blob/master/Reducer.png)
 
 Este  reducer consta de un estado que queremos cambiar, un estado inical y una accion, que son los parámetros que recibe como podemos ver:
 
@@ -41,3 +44,13 @@ Lo que retorna es un nuevo estado, que permanecerá hasta que llegue otra acció
     
     
 De esta forma manejamos los estados que creamos necesarios añadir según las distintas funcionalidades que la aplicación necesita.
+
+
+### Dispatch
+
+Este es el componente que se encarga de enviar en el Type el cambio de estado y en el payload la acción que manda al reducer, para que el resto de componentes que tengan que cambiar, lo hagan.
+
+
+### Subscribe
+
+El componente Subscribe, es que esucha los cambio en el reducer y ejecuta la acción.
