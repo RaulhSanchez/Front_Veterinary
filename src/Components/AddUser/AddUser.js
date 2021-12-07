@@ -7,7 +7,7 @@ const AddUser = () => {
     const navigate = useNavigate()
     const handleChange = async (e) => {
         e.preventDefault()
-        await APIConsumer.registerUser(JSON.stringify({"name":e.target.name.value ,"email":e.target.mail.value,"password":e.target.password.value,"phone":e.target.phone.value,"age":e.target.age.value,"adress":e.target.adress.value}))
+        await APIConsumer.registerUser(JSON.stringify({"name":e.target.name.value ,"mail":e.target.mail.value,"password":e.target.password.value,"phone":e.target.phone.value,"age":e.target.age.value,"adress":e.target.adress.value}))
         navigate("/login")
     }
     return(
@@ -16,7 +16,7 @@ const AddUser = () => {
                 <input type="text" name="name" placeholder="Añada su nombre" required/>
             </label>            
             <label className="field1">
-                <input type="mail" name="email" placeholder="Añada su Email" required/>
+                <input type="mail" name="mail" placeholder="Añada su Email" required/>
             </label>            
             <label className="field2">
                 <input type="password" name="password" placeholder="Añada su contraseña" />

@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+import PetProfile from './Components/PetProfile/PetProfile';
 import Admin from './Container/Admin/Admin';
 import AllPets from './Container/AllPets/AllPets';
 import AppointmenPage from './Container/AppointmenPage/AppointmentPage';
@@ -21,6 +22,7 @@ function App() {
           <Route path="/appointment"element={<AppointmenPage />} />
           <Route path="/all"element={<AllPets />}/>
           <Route path="/pet"element={<Pet />}/>
+          <Route path="/petProfile"element={<PetProfile />}/>
           <Route path="/admin"element={<Admin />}/>
         </Routes>
       </BrowserRouter>

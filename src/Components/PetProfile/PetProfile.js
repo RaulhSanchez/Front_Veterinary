@@ -7,7 +7,6 @@ const PetProfile =  () => {
     const [pet, setPet]= useState([])
     const handleChange = async() => {
         try {
-            console.log("entra")
             const user =localStorage.getItem("token")
             console.log(user)
             let res = await APIConsumer.getPet()
@@ -24,13 +23,15 @@ const PetProfile =  () => {
 
     return(
         <>
-            {pet.map((dataPet)=>{
-                return(<PetCard name={
-                    dataPet.name}
-                    mascota={
-                        dataPet.mascota}
-                />)
-            })}
+            <div>
+                {pet.map((dataPet)=>{
+                    return(<PetCard name={
+                        dataPet.name}
+                        mascota={
+                            dataPet.mascota}
+                    />)
+                })}
+            </div>
         </>
     )
 }

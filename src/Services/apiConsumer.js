@@ -3,7 +3,7 @@ export const APIConsumer = {
     loginUser: async (data) => {
         try{
             //let token = localStorage.getItem('token')
-            let result = await fetch('http://localhost:3000/user/login', {
+            let result = await fetch('http://localhost:3001/user/login', {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
@@ -21,7 +21,7 @@ export const APIConsumer = {
     
     registerUser: async (data) => {
         try{
-            let result = await fetch('http://localhost:3000/user/register',{
+            let result = await fetch('http://localhost:3001/user/register',{
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             mode:"cors",
@@ -35,7 +35,7 @@ export const APIConsumer = {
     registerPet:async (data) => {
 
         try{
-            let result = await fetch('http://localhost:3000/pet/create',{
+            let result = await fetch('http://localhost:3001/pet/create',{
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
@@ -49,16 +49,16 @@ export const APIConsumer = {
             console.log(data)
         }
     },
-    getPet:async (data) => {
-        console.log(data)
+    getPet:async () => {
         try {
-            let result = await fetch("http://localhost:3000/pet/all",{
+            let result = await fetch("http://localhost:3001/pet/all",{
                 method:"GET",
                 headers:{
                     "Content-Type": "application/json"
                 },
                 mode:"cors"
             })
+            result = await result.json() 
             return result
         } catch (data) {
             console.log(data)
@@ -68,7 +68,7 @@ export const APIConsumer = {
     createAppointment:async (data) => {
         console.log(data)
         try {
-            let result = await fetch("http://localhost:3000/appointments/appointment",{
+            let result = await fetch("http://localhost:3001/appointments/appointment",{
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
@@ -77,24 +77,39 @@ export const APIConsumer = {
                 mode:"cors",  
                 body: JSON.stringify(data)
             })
+            console.log(result)
             return result
         } catch (data){
             console.log(data)
         }
     },
     
-    searchDoctor:async (data) =>{
+    getAllApointment:async (data) => {
         try {
-            console.log()
+            let result = await fetch("http://localhost:3001/appointments/all",{
+                method: "GET",
+                headers:{
+                    'Content-Type': 'application/json'
+                },
+                mode:"cors",
+            })
+            console.log(result)
+            return result
+        } catch (error) {
+            
+        }
+    },
 
-            let result = await fetch("http://localhost:3000/doctor/all",{
+    searchDoctor:async () =>{
+        try {
+            let result = await fetch("http://localhost:3001/doctor/all",{
                 method:"GET",
                 headers:{
                     "Content-type": "application/json"
                 },
                 mode:"cors",
             })
-            console.log(result)
+            result = await result.json() 
             return result
         } catch (data) {
             console.log(data)
