@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# Frontend_Veterinario
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este repositorio pertenece al Frontend de la aplicación para una clínica veterinaria que complementa al Backend anteriormente creado, lo que lo convierte en la primera aplicación FullStack desarrollada en este curso.
 
-## Available Scripts
+## Tecnología utilizada
 
-In the project directory, you can run:
+Este Frontend está basado en React como librería principal de JavaScript y Create-React app para la visualización del resultado. Además hemos implementado la herramienta Redux para la gestión del estado, que explicaremos posteriormente.Además otra novedad implementada es el Sass como complemento de CSS.
 
-### `npm start`
+## Creación de la aplicación
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Para crear esta aplicación hemos utilizado un Backend externo al que nos conectamos a traves de los fetch(llamadas a la API),y nos genera un intercambio de datos entre el Front y el Back. Una vez creada esta union, generamos distintos tipos de llamadas a la API, tanto para enviar información (al crear un usuario) o para recibir(al entrar a tu perfil). 
+Además hemos segiudo un patrón para la estructura de carpetas, donde tenemos unarchivo componentes, en el que añadimos por separado cada componente de la aplicación(el Header, el Footer...).También esta la carpeta de Container, donde añadimos las páginas y en ellas los componentes de las que constan como se puede ver a continuación:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![Archivos](https://github.com/RaulhSanchez/e-comerce/blob/master/Files.png)
 
-### `npm test`
+En la carpeta Services, hemos añadido el script apiConsumer.js que es el archivo que contiene las rutas para cominucarse con la API.En Store se encuntra el Reducer, que explicaremos en el siguiente apartado.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Gestion de estados
 
-### `npm run build`
+Una de las novedades de esta aplicación es la implementación de Redux y la gestión del estado.Para ello contamos con 3 elementos principales:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Reducer
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Esta función es la que se encarga de gestionar los eventos. Cuando le llegue la acción que hayamos creado, mandará una está acción al componente que tenga que ejecutarla. Esto se consigue gracias al Dispatch, elemento que manda la acción, y al Suscribe, que es el que recibe esta acción.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Reducer](https://github.com/RaulhSanchez/e-comerce/blob/master/Reducer.png)
 
-### `npm run eject`
+Este  reducer consta de un estado que queremos cambiar, un estado inical y una accion, que son los parámetros que recibe como podemos ver:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    const reducer = (currentState = initalState, action) => {
+    
+Dentro de esta función se crean las condiciones para que  el estado cambie. En el caso del login el estado inical, constaría como False, y al ejecutarse, este estado cambiaría segun la acción que reciba:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    if(action.type === "LOGIN"){
+        return{
+            userLogged: action.payload
+        }
+    }
+    
+Lo que retorna es un nuevo estado, que permanecerá hasta que llegue otra acción que determine un nuevo cambio de estado:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    return currentState
+    
+    
+De esta forma manejamos los estados que creamos necesarios añadir según las distintas funcionalidades que la aplicación necesita.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Dispatch
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Este es el componente que se encarga de enviar en el Type el cambio de estado y en el payload la acción que manda al reducer, para que el resto de componentes que tengan que cambiar, lo hagan.
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Subscribe
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+El componente Subscribe, es que esucha los cambio en el reducer y ejecuta la acción.
