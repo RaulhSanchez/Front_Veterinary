@@ -1,7 +1,7 @@
 
 .header{
-    background-color: burlywood;
-    color: brown;
+    background-color: rgb(194, 229, 232);
+    color: rgb(65, 152, 206);
     justify-content: end;
     position:sticky;
     display: grid;
@@ -12,15 +12,18 @@
         font-family: 'Courier New', Courier, monospace;
     }
     input{
-        background-color: burlywood;
-        border:0em;
+        background-color: rgb(194, 229, 232);
+        margin-top: 3em;
+        margin-bottom: 2em;
+        margin-right: 7em;
+        border-radius: 2em;
         font-family: 'Courier New', Courier, monospace;
         justify-content: left;
         margin-left: 1em;
         position:sticky;
     }
     input:hover{
-        background-color: rgb(234, 152, 123);
+        background-color: rgb(208, 238, 211);
     }
 
 }

@@ -1,31 +1,37 @@
 import { useEffect, useState } from "react"
+import APIConsumer from "../../Services/apiConsumer"
 import PetCard from "../PetCard/PetCard"
 
 
-const PetProfile = () => {
-
-    const[pets, setPets] = useState([])
-    const handleChanges = async () =>{
+const PetProfile =  () => {    
+    const [pet, setPet]= useState([])
+    const handleChange = async() => {
         try {
-            
-            let res = await fetch("http://localhost:3000/pet/find")
+            console.log("entra")
+            const user =localStorage.getItem("token")
+            console.log(user)
+            let res = await APIConsumer.getPet()
             res = await res.json()
-            setPets(res.data)
+            console.log(res)
+            setPet(res.data)
         } catch (error) {
-            console.log("errrorrr")
+            console.log("no hay animales")
         }
     }
     useEffect(()=>{
-        handleChanges()
+        handleChange()
     },[])
+
     return(
         <>
-            {pets.map((dataPets)=>{
-                console.log(dataPets)
-                return(<PetCard pet={dataPets.id}/>)
+            {pet.map((dataPet)=>{
+                return(<PetCard name={
+                    dataPet.name}
+                    mascota={
+                        dataPet.mascota}
+                />)
             })}
         </>
     )
 }
-
 export default PetProfile

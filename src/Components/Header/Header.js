@@ -10,7 +10,7 @@ const Header = () => {
     return(
         <div className="header">
             <h1>Nombre de la clinica</h1>
-            <input onClick={loginButton} type="submit" value="Login"/>
+            <input className="button-51" onClick={loginButton} type="submit" value="Login"/>
             <input onClick={registerButton} type="submit" value="Register"/>
             <input onClick={homeButton} type="submit" value="Home"/>
         </div>

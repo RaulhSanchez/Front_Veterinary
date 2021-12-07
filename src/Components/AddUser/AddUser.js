@@ -7,32 +7,32 @@ const AddUser = () => {
     const navigate = useNavigate()
     const handleChange = async (e) => {
         e.preventDefault()
-        await APIConsumer.registerUser(JSON.stringify({"name":e.target.name.value ,"mail":e.target.mail.value,"password":e.target.password.value,"phone":e.target.phone.value,"age":e.target.age.value,"adress":e.target.adress.value}))
+        await APIConsumer.registerUser(JSON.stringify({"name":e.target.name.value ,"email":e.target.mail.value,"password":e.target.password.value,"phone":e.target.phone.value,"age":e.target.age.value,"adress":e.target.adress.value}))
         navigate("/login")
     }
     return(
-        <form className="form" onSubmit={(e) => handleChange(e)}>
-            <div className="form">            
+        <form className="form-style-4" onSubmit={(e) => handleChange(e)}>
+            <label className="field1">            
                 <input type="text" name="name" placeholder="Añada su nombre" required/>
-            </div>            
-            <div className="form">
-                <input type="text" name="mail" placeholder="Añada su Email" required/>
-            </div>            
-            <div className="form">
+            </label>            
+            <label className="field1">
+                <input type="mail" name="email" placeholder="Añada su Email" required/>
+            </label>            
+            <label className="field2">
                 <input type="password" name="password" placeholder="Añada su contraseña" />
-            </div>
-            <div className="form">
+            </label>
+            <label className="field1">
                 <input type="text" name="phone" placeholder="Añada su telefono" required/>
-            </div>
-            <div className="form">
+            </label>
+            <label className="field1">
                 <input type="text" name="age" placeholder="Añada su edad" required/>
-            </div> 
-            <div className="form">
+            </label> 
+            <label className="field1">
                 <input type="text" name="adress" placeholder="Añada su direccion" required/>
-            </div>
-            <div className="form">
+            </label>
+            <label className="form">
                 <input type="submit" value="Registrarse" className="btn"/>
-            </div>
+            </label>
         </form>
     )
 }

@@ -6,7 +6,7 @@ const initalState = {
 }
 
 const reducer = (currentState = initalState, action) => {
-    console.log(currentState,"Antes de cambiar el store")
+    
     
     if(action.type === "LOGIN"){
         return{

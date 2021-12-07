@@ -7,7 +7,7 @@ const LoginUser = () => {
     const navigate = useNavigate()
     const handleChanges = async (e) => {
         e.preventDefault()
-        let result = await APIConsumer.loginUser(JSON.stringify({mail: e.target.email.value, password: e.target.password.value}))        
+        let result = await APIConsumer.loginUser(JSON.stringify({mail: e.target.mail.value, password: e.target.password.value}))        
         console.log(result, 'TOKEN' )
         console.log(result.hashDescoted)
         
@@ -18,18 +18,20 @@ const LoginUser = () => {
             })
             navigate("/profile")
         }        
-    }
+    }   
     return (
         <div>
-        <form className='buttonLogin' onSubmit={(e)=>handleChanges(e)}>
-            <div className='buttonLogin'>
-                <input className="buttonLogin" type='email' name='email' placeholder='Email' required />
-            </div>
-            <div className='login-form'>
-                <input className="buttonLogin" type='password' name='password' placeholder='Contraseña' required />
-            </div>    
-            <input className="buttonLogin" type='submit' value='Login' className='btn btn-block' />
-        </form>
+            <form className="form-style-4 "onSubmit={(e)=>handleChanges(e)}>
+                <label >
+                    <span>Añade tu Mail</span><input type="email" name="mail" required />
+                </label>
+                <label >
+                    <span>Añade tu Contraseña</span><input type="password" name="password" required/>
+                </label>
+                <label>
+                    <span> </span><input type="submit" value="Login" />
+                </label>
+            </form>
         </div>
     )
 }

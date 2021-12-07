@@ -44,42 +44,63 @@ export const APIConsumer = {
                 mode:"cors",
                 body: data
             })
+            return result
         } catch (data){
             console.log(data)
         }
     },
-    addPet:async (data) => {
+    getPet:async (data) => {
+        console.log(data)
         try {
-            let result = await fetch("http://localhost:3000/pet/",{
+            let result = await fetch("http://localhost:3000/pet/all",{
                 method:"GET",
                 headers:{
-                    "Content-Type": "application/json",
-                    "token": localStorage.getItem("token")
+                    "Content-Type": "application/json"
                 },
-                mode:"cors",
-                body:data
+                mode:"cors"
             })
+            return result
         } catch (data) {
             console.log(data)
         }
     },
     
     createAppointment:async (data) => {
+        console.log(data)
         try {
-            let result = await fetch("http://localhost:3000/appointment/appointment",{
-                method:"POST",
+            let result = await fetch("http://localhost:3000/appointments/appointment",{
+                method: "POST",
                 headers: {
-                    "Content-type": "application/json",
+                    'Content-Type': 'application/json',
                     "token": localStorage.getItem("token")
                 },
-                mode:"cors",
-                body:data
+                mode:"cors",  
+                body: JSON.stringify(data)
             })
+            return result
+        } catch (data){
+            console.log(data)
+        }
+    },
+    
+    searchDoctor:async (data) =>{
+        try {
+            console.log()
+
+            let result = await fetch("http://localhost:3000/doctor/all",{
+                method:"GET",
+                headers:{
+                    "Content-type": "application/json"
+                },
+                mode:"cors",
+            })
+            console.log(result)
+            return result
         } catch (data) {
             console.log(data)
         }
     }
-    
+
 }
 
 

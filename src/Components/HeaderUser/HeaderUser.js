@@ -11,9 +11,9 @@ const HeaderUser = () => {
     return(
         <div className="headerUser">
             <input onClick={homeButton} type="submit" value="Home"/>
-            <input onClick={profileButoon} type="submit" value="Profile"/>
-            <input onClick={appointmentButton} type="submit" value="Appointment"/>
-            <input onClick={petButton} type="submit" value="Your Pet"/>
+            <input onClick={profileButoon} type="submit" value="Perfil"/>
+            <input onClick={appointmentButton} type="submit" value="Pedir Cita"/>
+            <input onClick={petButton} type="submit" value="Tu mascota"/>
         </div>
     )
 

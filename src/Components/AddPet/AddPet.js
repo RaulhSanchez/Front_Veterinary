@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import APIConsumer from "../../Services/apiConsumer"
-import store from "../../Store/store"
 
+import "./AddPet.scss"
 
 const AddPet = () => {
     const navigate = useNavigate()
@@ -11,15 +11,15 @@ const AddPet = () => {
             navigate("/pet")
     }
     return(
-        <form className="form" onSubmit={(e) => handleChange(e)}>
-            <div className="form">            
+        <form className="form-style-4" onSubmit={(e) => handleChange(e)}>
+            <div className="">            
                 <input type="text" name="name" placeholder="Añada su nombre" required/>
             </div> 
             <div className="form">            
                 <input type="text" name="mascota" placeholder="Que animal es" required/>
             </div> 
             <div>
-                <input type="buttonLogin" type="submit" value="Añadir"/>
+                <input type="submit" value="Añadir"/>
             </div>
         </form>
         

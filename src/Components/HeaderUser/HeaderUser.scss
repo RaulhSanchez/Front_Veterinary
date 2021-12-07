@@ -1,12 +1,12 @@
 .headerUser{
-    background-color: burlywood;
+    background-color: rgb(194, 229, 232);
     padding-bottom: 1em;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     justify-content: left;
     position:sticky;
     input{
-        background-color: burlywood;
+        background-color: rgb(171, 222, 135);
         margin-top: 1em;
         border:0em;
         font-family: 'Courier New', Courier, monospace;
@@ -15,7 +15,7 @@
         position:sticky;
     }
     input:hover{
-        background-color: rgb(234, 152, 123);
+        background-color: rgb(132, 210, 107);
     }
 
 }
