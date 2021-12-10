@@ -7,7 +7,6 @@ const PetProfile =  () => {
     const [pet, setPet]= useState([])
     const handleChange = async(e) => {        
         try {
-            
             let res = await APIConsumer.getPetByUser()
             setPet(res.data)
         } catch (error) {

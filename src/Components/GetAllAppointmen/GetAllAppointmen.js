@@ -6,10 +6,7 @@ import AppointmentCard from "../AppointmentCard/AppointmentCard"
 const GetAllAppointmen = () => {
     const [appointment, setAppointment] = useState([])
     const handleChange = async () => {
-        
         try {
-            const user =localStorage.getItem("token")
-            console.log(res)
             let res = await APIConsumer.getAllApointment()
             setAppointment(res.Data)
         } catch (error) {
@@ -33,7 +30,7 @@ const GetAllAppointmen = () => {
             })}
         </>
     )
- 
+
 }
 
 export default GetAllAppointmen

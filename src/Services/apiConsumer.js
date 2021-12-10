@@ -100,10 +100,11 @@ export const APIConsumer = {
     },
     getAllApointment:async (data) => {
         try {
-            let result = await fetch("http://localhost:3001/appointments/all",{
+            let result = await fetch("http://localhost:3001/appointments/user",{
                 method: "GET",
                 headers:{
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    "token": localStorage.getItem("token")
                 },
                 mode:"cors",
             })
