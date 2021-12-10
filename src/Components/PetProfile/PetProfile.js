@@ -5,13 +5,10 @@ import PetCard from "../PetCard/PetCard"
 
 const PetProfile =  () => {    
     const [pet, setPet]= useState([])
-    const handleChange = async() => {
+    const handleChange = async(e) => {        
         try {
-            const user =localStorage.getItem("token")
-            console.log(user)
-            let res = await APIConsumer.getPet()
-            res = await res.json()
-            console.log(res)
+            
+            let res = await APIConsumer.getPetByUser()
             setPet(res.data)
         } catch (error) {
             console.log("no hay animales")
@@ -20,11 +17,10 @@ const PetProfile =  () => {
     useEffect(()=>{
         handleChange()
     },[])
-
     return(
         <>
             <div>
-                {pet.map((dataPet)=>{
+                {pet?.map((dataPet)=>{
                     return(<PetCard name={
                         dataPet.name}
                         mascota={

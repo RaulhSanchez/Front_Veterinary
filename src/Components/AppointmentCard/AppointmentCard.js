@@ -1,11 +1,18 @@
 const AppointmentCard = (props) => {
     return(
         <>
-        <div>
+         <div className="form-style-4">
             <ul>
                 <li>
-                    <span >{[props.date,props.state,props.userId]}</span>
+                    <span >{props.date}</span>
                 </li>
+                <li>
+                    <span >{props.state}</span>
+                </li>
+                <li>
+                    <span >{props.userId}</span>
+                </li>
+                
             </ul>
         </div>
         </>

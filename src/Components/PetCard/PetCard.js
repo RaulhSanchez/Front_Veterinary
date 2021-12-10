@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+
 import { useNavigate } from "react-router-dom"
 
 
@@ -9,7 +9,10 @@ const PetCard = (props) => {
         <div className="form-style-4">
             <ul>
                 <li>
-                    <span >{[props.name,props.mascota]}</span>
+                    <span >{props.name}</span>
+                </li>
+                <li>
+                    <span >{props.mascota}</span>
                 </li>
             </ul>
             <button>

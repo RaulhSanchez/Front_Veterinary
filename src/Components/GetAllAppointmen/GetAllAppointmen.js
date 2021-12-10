@@ -6,11 +6,11 @@ import AppointmentCard from "../AppointmentCard/AppointmentCard"
 const GetAllAppointmen = () => {
     const [appointment, setAppointment] = useState([])
     const handleChange = async () => {
+        
         try {
             const user =localStorage.getItem("token")
-            let res = await APIConsumer.getAllApointment()
-            res = await res.json()
             console.log(res)
+            let res = await APIConsumer.getAllApointment()
             setAppointment(res.Data)
         } catch (error) {
             console.log("no hay citas")
@@ -18,7 +18,6 @@ const GetAllAppointmen = () => {
     }
     useEffect(()=>{
         handleChange()
-        console.log(appointment)
     },[])
     return(
         <>

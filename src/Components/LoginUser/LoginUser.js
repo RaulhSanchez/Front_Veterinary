@@ -8,9 +8,6 @@ const LoginUser = () => {
     const handleChanges = async (e) => {
         e.preventDefault()
         let result = await APIConsumer.loginUser(JSON.stringify({mail: e.target.mail.value, password: e.target.password.value}))        
-        console.log(result, 'TOKEN' )
-        console.log(result.hashDescoted)
-        
         if(result.hashDescoted){
             store.dispatch({
                 type:"LOGIN",

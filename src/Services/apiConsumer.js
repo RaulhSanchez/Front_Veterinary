@@ -11,7 +11,6 @@ export const APIConsumer = {
                 body: data
             })
             result = await result.json() 
-            console.log(result.hashDescoted)
             localStorage.setItem('token', result.hashDescoted)
             return result 
         } catch(data){
@@ -54,7 +53,24 @@ export const APIConsumer = {
             let result = await fetch("http://localhost:3001/pet/all",{
                 method:"GET",
                 headers:{
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "token": localStorage.getItem("token")
+                },
+                mode:"cors"
+            })
+            result = await result.json() 
+            return result
+        } catch (data) {
+            console.log(data)
+        }
+    },
+    getPetByUser:async () => {
+        try {
+            let result = await fetch("http://localhost:3001/pet/user",{
+                method:"GET",
+                headers:{
+                    "Content-Type": "application/json",
+                    "token": localStorage.getItem("token")
                 },
                 mode:"cors"
             })
@@ -77,13 +93,11 @@ export const APIConsumer = {
                 mode:"cors",  
                 body: JSON.stringify(data)
             })
-            console.log(result)
             return result
         } catch (data){
             console.log(data)
         }
     },
-    
     getAllApointment:async (data) => {
         try {
             let result = await fetch("http://localhost:3001/appointments/all",{
@@ -94,6 +108,7 @@ export const APIConsumer = {
                 mode:"cors",
             })
             console.log(result)
+            result = await result.json() 
             return result
         } catch (error) {
             
@@ -120,3 +135,18 @@ export const APIConsumer = {
 
 
 export default APIConsumer
+
+/*deleteAppointment:async (data) => {
+    try {
+        let result = await fetch("http://localhost:3001/appointments/deleteone",{
+            method:"DELETE",
+            headers: {
+                'Content-Type': 'application/json',
+                "token": localStorage.getItem("token")
+            },
+            mode:"cors",  
+        })
+    } catch (data) {
+        console.log(data)
+    }
+},*/

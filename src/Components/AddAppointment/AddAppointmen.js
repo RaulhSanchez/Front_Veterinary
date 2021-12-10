@@ -1,6 +1,6 @@
 import { useEffect,useState } from "react"
 import APIConsumer from "../../Services/apiConsumer"
-import AddDoctor from "../AddDoctor/AddDoctor"
+
 
 
 const AddAppointment = () => {
@@ -23,7 +23,7 @@ const AddAppointment = () => {
             setDoctor(res.data)
         }
         const getPet = async() =>{
-            let res = await APIConsumer.getPet()
+            let res = await APIConsumer.getPetByUser()
             setPet(res.data)
         }
         useEffect(()=>{
@@ -37,24 +37,18 @@ const AddAppointment = () => {
                 <input type="date" name="date" placeholder="Añada la fecha de la cita" required />
             </div>
             <select name="doctor">
-                
                     {doctor.map((doctorList)=>{
                         return( <option key={doctorList.id} value={doctorList.id}>
                             {doctorList.name}
                             </option>)
-                    }
-                        
-                    )}
+                    })}
             </select>
             <select name="pets">
-                
                 {pet.map((petList)=>{
                     return( <option key={petList.id} value={petList.id}>
                         {petList.name}
                         </option>)
-                }
-                    
-                )}
+                })}
         </select>
             <div className="form">
                 <input type="submit" value="Añadir cita" className="btn" />
