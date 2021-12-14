@@ -1,9 +1,9 @@
 
 import { useNavigate } from "react-router-dom"
 
-
 const PetCard = (props) => {
     const navigate = useNavigate()
+    const appointmentButton = () => {navigate("/appointment")}
     const petProfileButton = () => {navigate("/petProfile")}
     return(
         <div className="form-style-4">
@@ -15,11 +15,8 @@ const PetCard = (props) => {
                     <span >{props.mascota}</span>
                 </li>
             </ul>
-            <button>
+            <button onClick={appointmentButton}> 
                 Crear cita para {[props.name]}
-            </button>
-            <button>
-                Anular cita para {[props.name]}
             </button>
             <button onClick={petProfileButton}type="submit">
                 Perfil de {[props.name]}

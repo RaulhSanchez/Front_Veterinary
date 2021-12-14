@@ -26,6 +26,9 @@ const GetAllAppointmen = () => {
                 }userId={
                     dataAppointment.userId
                 }
+                petId={
+                    dataAppointment.petId
+                }
                 />)
             })}
         </>

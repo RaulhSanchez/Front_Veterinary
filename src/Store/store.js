@@ -13,6 +13,11 @@ const reducer = (currentState = initalState, action) => {
             userLogged: action.payload
         }
     }
+    if(action.type ==="LOGOUT"){
+        return{
+            userLogged:false
+        }
+    }
     return currentState
 }
 

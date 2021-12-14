@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom"
+import LogOutButton from "../LogOutButton/LogOutButton"
 import "./HeaderUser.scss"
 
 const HeaderUser = () => {
@@ -14,6 +15,7 @@ const HeaderUser = () => {
             <input onClick={profileButoon} type="submit" value="Perfil"/>
             <input onClick={appointmentButton} type="submit" value="Pedir Cita"/>
             <input onClick={petButton} type="submit" value="Tu mascota"/>
+            <LogOutButton />
         </div>
     )
 

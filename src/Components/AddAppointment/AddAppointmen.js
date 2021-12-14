@@ -9,10 +9,7 @@ const AddAppointment = () => {
 
     const handleChange = async (e) => {
         e.preventDefault()
-        console.log(e.target[1].value)
-        console.log(e.target[2].value)
         try {
-            console.log("entra")
             let res = await APIConsumer.createAppointment({"date":e.target.date.value,"doctor":e.target[1].value,"pets":e.target[2].value})
         } catch (error) {
             console.log("error")

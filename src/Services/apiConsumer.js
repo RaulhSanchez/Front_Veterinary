@@ -17,6 +17,22 @@ export const APIConsumer = {
             console.log(data)
         }
     },
+    logOut: async(data) => {
+        try {
+            let result = await fetch("http://localhost:3001/user/logout",{
+                method:"POST",
+                headers:{
+                    'Content-Type': 'application/json',
+                    "token":localStorage.getItem("token")
+                },
+                body: data
+            })
+            result = await result.json() 
+            return result
+        } catch (error) {
+            
+        }
+    },
     
     registerUser: async (data) => {
         try{
@@ -82,7 +98,6 @@ export const APIConsumer = {
     },
     
     createAppointment:async (data) => {
-        console.log(data)
         try {
             let result = await fetch("http://localhost:3001/appointments/appointment",{
                 method: "POST",
@@ -98,7 +113,7 @@ export const APIConsumer = {
             console.log(data)
         }
     },
-    getAllApointment:async (data) => {
+    getAllApointment:async (data) => {        
         try {
             let result = await fetch("http://localhost:3001/appointments/user",{
                 method: "GET",
@@ -107,10 +122,29 @@ export const APIConsumer = {
                     "token": localStorage.getItem("token")
                 },
                 mode:"cors",
+                body:data
             })
-            console.log(result)
             result = await result.json() 
             return result
+        } catch (error) {
+            
+        }
+    },
+    deleteAppointment:async (data) => {
+        console.log(data)
+        console.log(typeof(data))
+        try {
+            let result = await fetch("http://localhost:3001/appointments/delete",{
+                method: "DELETE",
+                headers:{
+                    'Content-Type': 'application/json',
+                    "token": localStorage.getItem("token")
+                },
+                mode:"cors",
+                body:JSON.stringify(data)
+            })
+            
+
         } catch (error) {
             
         }
@@ -130,24 +164,10 @@ export const APIConsumer = {
         } catch (data) {
             console.log(data)
         }
-    }
+    },
 
 }
 
 
-export default APIConsumer
 
-/*deleteAppointment:async (data) => {
-    try {
-        let result = await fetch("http://localhost:3001/appointments/deleteone",{
-            method:"DELETE",
-            headers: {
-                'Content-Type': 'application/json',
-                "token": localStorage.getItem("token")
-            },
-            mode:"cors",  
-        })
-    } catch (data) {
-        console.log(data)
-    }
-},*/
+export default APIConsumer
