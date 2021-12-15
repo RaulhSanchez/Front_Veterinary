@@ -16,7 +16,7 @@ const LogOutButton = () => {
     }
     return(
         <>
-            <form className="form-style-4 "onSubmit={(e)=>handleChanges(e)}>   
+            <form className=" "onSubmit={(e)=>handleChanges(e)}>   
                 <input type="submit" value="LogOut" />
             </form>
         </>

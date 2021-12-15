@@ -8,7 +8,7 @@ const AddPet = () => {
     const handleChange = async(e) => {
         e.preventDefault()
         let result=await APIConsumer.registerPet(JSON.stringify({"name":e.target.name.value,"mascota":e.target.mascota.value}))
-            navigate("/pet")
+        navigate("/pet")
     }
     return(
         <form className="form-style-4" onSubmit={(e) => handleChange(e)}>

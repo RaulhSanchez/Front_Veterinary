@@ -1,5 +1,5 @@
 import AddPet from "../../Components/AddPet/AddPet"
-import GetAllAppointmen from "../../Components/GetAllAppointmen/GetAllAppointmen"
+import GetAllAppointmen from "../../Components/GetAllAppointment/GetAllAppointment"
 import HeaderUser from "../../Components/HeaderUser/HeaderUser"
 import PetProfile from "../../Components/PetProfile/PetProfile"
 

@@ -132,7 +132,6 @@ export const APIConsumer = {
     },
     deleteAppointment:async (data) => {
         console.log(data)
-        console.log(typeof(data))
         try {
             let result = await fetch("http://localhost:3001/appointments/delete",{
                 method: "DELETE",
@@ -143,7 +142,25 @@ export const APIConsumer = {
                 mode:"cors",
                 body:JSON.stringify(data)
             })
+          
+            return result
+        } catch (error) {
             
+        }
+    },
+    changeAppointmen: async (data) => {
+        try {
+            let result = await fetch("http://localhost:3001/appointments/change",{
+                method:"PUT",
+                headers:{
+                    "Content-Type":"application/json",
+                    "token": localStorage.getItem("token")
+                },
+                mode:"cors",
+                body:JSON.stringify(data)
+            })
+            result = await result.json()
+            return result
 
         } catch (error) {
             
