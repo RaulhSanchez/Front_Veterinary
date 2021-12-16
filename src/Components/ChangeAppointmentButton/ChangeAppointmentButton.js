@@ -7,7 +7,6 @@ const ChangeAppointmentButton = async () => {
     const handleChange = async (e) => {
         try {
             let result = await APIConsumer.changeAppointmen({"date":e.date})
-            setDate(result.data)
         } catch (error) {
             console.log("no se ha hecho el cambio")
         }

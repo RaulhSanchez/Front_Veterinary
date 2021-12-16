@@ -18,6 +18,7 @@ export const APIConsumer = {
         }
     },
     logOut: async(data) => {
+        console.log(data)
         try {
             let result = await fetch("http://localhost:3001/user/logout",{
                 method:"POST",
@@ -25,10 +26,7 @@ export const APIConsumer = {
                     'Content-Type': 'application/json',
                     "token":localStorage.getItem("token")
                 },
-                body: data
             })
-            result = await result.json() 
-            return result
         } catch (error) {
             
         }
@@ -142,7 +140,7 @@ export const APIConsumer = {
                 mode:"cors",
                 body:JSON.stringify(data)
             })
-          
+            result = await result.json()
             return result
         } catch (error) {
             

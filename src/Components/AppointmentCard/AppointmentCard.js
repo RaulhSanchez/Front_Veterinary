@@ -2,26 +2,24 @@ import { useEffect, useState } from "react"
 import { Navigate, useNavigate } from "react-router-dom"
 import APIConsumer from "../../Services/apiConsumer"
 import store from "../../Store/store"
+import ChangeAppointmentButton from "../ChangeAppointmentButton/ChangeAppointmentButton"
 
 
 const AppointmentCard = (props) => {
-    const [date, setDate] = useState()
+    const [date, setDate] = useState([])
     const navigate = useNavigate()
     const DeleteAppointmentButton = async () => {
         try {            
             let res = await APIConsumer.deleteAppointment({"date":props.date})
-            console.log(res)
             if(res){
-                console.log("entra")
                 store.dispatch({
                     type:"CLICK",
                     payload: res.data
                 })
-                navigate("/appointment")
+                navigate("/pet")
             }
         } catch (error) {console.log("Error al elminar la cita")}
     }
- 
     return(
         <>
             <div className="form-style-4">
@@ -42,6 +40,7 @@ const AppointmentCard = (props) => {
                 <div >
                     <input onClick={()=>DeleteAppointmentButton(props.date)}type="submit"value="Eliminar cita" className="btn" />
                 </div>
+                
             </div>
         </>
     )

@@ -1,23 +1,27 @@
 import { useNavigate } from "react-router-dom"
+import { useEffect } from "react/cjs/react.development"
+import { useState } from "react/cjs/react.production.min"
 import APIConsumer from "../../Services/apiConsumer"
 import store from "../../Store/store"
 
 
 const LogOutButton = () => {
     const navigate = useNavigate()
-    const handleChanges = async (e) => {
-        
-        let result = await APIConsumer.logOut()
-       if("token"=== true){
-           console.log("Errr")
-        }else{
-        navigate("/home")
+    
+    const LogOutButton = async () => {
+        try{
+            localStorage.removeItem("token")
+            navigate("/home")
+        }catch(error){
+            console.log("error")
         }
     }
+  
+    
     return(
         <>
-            <form className=" "onSubmit={(e)=>handleChanges(e)}>   
-                <input type="submit" value="LogOut" />
+            <form className=" ">   
+                <input onClick={()=>LogOutButton()} type="submit" value="LogOut" />
             </form>
         </>
     )
