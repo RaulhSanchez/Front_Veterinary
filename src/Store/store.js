@@ -25,12 +25,5 @@ const initState = {
     clicked: false
 }
 
-const reducerButton = (currentState = initState,action)=>{
-    if(action.type === "CLICK"){
-        return{
-            clicked: action.payload
-        }
-    }
-}
 
 export default createStore(reducer, {}, devToolsEnhancer({ trace: true }))

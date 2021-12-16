@@ -1,6 +1,7 @@
 export const APIConsumer = {
 
     loginUser: async (data) => {
+        console.log(data)
         try{
             //let token = localStorage.getItem('token')
             let result = await fetch('http://localhost:3001/user/login', {
@@ -128,6 +129,23 @@ export const APIConsumer = {
             
         }
     },
+    getAllApointmentByAdmin:async (data) => {
+        try {
+            let result = await fetch("http://localhost:3001/appointments/all",{
+                method: "GET",
+                headers:{
+                    'Content-Type': 'application/json',
+                    "token": localStorage.getItem("token")
+                },
+                mode:"cors",
+                body:data
+            })
+            result = await result.json() 
+            return result
+        } catch (error) {
+            
+        }
+    },
     deleteAppointment:async (data) => {
         console.log(data)
         try {
@@ -159,7 +177,6 @@ export const APIConsumer = {
             })
             result = await result.json()
             return result
-
         } catch (error) {
             
         }
