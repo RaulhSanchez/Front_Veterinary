@@ -2,6 +2,10 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import PetProfile from './Components/PetProfile/PetProfile';
 import Admin from './Container/Admin/Admin';
+import AdminAllAppointment from './Container/AdminAllAppointment/AdminAllAppointment';
+import AdminAllDoctors from './Container/AdminAllDoctors/AdminAllDoctors';
+import AdminAllPets from './Container/AdminAllPets/AdminAllPets';
+import AdminAllUsers from './Container/AdminAllUsers/AdminAllUsers';
 import AllPets from './Container/AllPets/AllPets';
 import AppointmenPage from './Container/AppointmenPage/AppointmentPage';
 import HomePage from './Container/HomePage/HomePage';
@@ -23,6 +27,10 @@ function App() {
           <Route path="/all"element={<AllPets />}/>
           <Route path="/pet"element={<Pet />}/>
           <Route path="/petProfile"element={<PetProfile />}/>
+          <Route path="/allpets"element={<AdminAllPets />}/>
+          <Route path="/allappointments"element={<AdminAllAppointment />}/>
+          <Route path="/allusers"element={<AdminAllUsers />}/>
+          <Route path="/alldoctors"element={<AdminAllDoctors />}/>
           <Route path="/admin"element={<Admin />}/>
         </Routes>
       </BrowserRouter>

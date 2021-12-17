@@ -1,10 +1,11 @@
-import AdminAppointments from "../../Components/AdminAppointments/AdminAppointments"
+import AdminHeader from "../../Components/AdminHeader/AdminHeader"
+
 
 
 const Admin = () => {
     return(
         <>
-            <AdminAppointments />
+            <AdminHeader />
         </>
     )
 }
