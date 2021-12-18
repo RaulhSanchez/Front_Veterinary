@@ -11,6 +11,7 @@ const AppointmentCard = (props) => {
     const DeleteAppointmentButton = async () => {
         try {            
             let res = await APIConsumer.deleteAppointment({"date":props.date})
+            setDate(res.date)
             if(res){
                 store.dispatch({
                     type:"CLICK",
@@ -20,6 +21,9 @@ const AppointmentCard = (props) => {
             }
         } catch (error) {console.log("Error al elminar la cita")}
     }
+    useEffect(()=>{
+        setDate()
+    })
     return(
         <>
             <div className="form-style-4">

@@ -7,14 +7,14 @@ const AdminLogin = () => {
     const navigate = useNavigate()
     const handleChanges = async (e) => {
         e.preventDefault()
-        let result = await APIConsumer.loginUser(JSON.stringify({mail: e.target.mail.value, password: e.target.password.value,role:"admin"}))        
-        if(result.hashDescoted){
-            store.dispatch({
-                type:"LOGIN",
-                payload:result.hashDescoted
-            })
-            navigate("/admin")
-        }        
+        let result = await APIConsumer.loginUser(JSON.stringify({mail: e.target.mail.value, password: e.target.password.value,role:"admin"}))
+            if(result.hashDescoted){
+                store.dispatch({
+                    type:"LOGIN",
+                    payload:result.hashDescoted
+                })
+                navigate("/admin")
+            }
     }   
     return (
         <div>

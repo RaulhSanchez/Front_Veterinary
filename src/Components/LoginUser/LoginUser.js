@@ -7,7 +7,7 @@ const LoginUser = () => {
     const navigate = useNavigate()
     const handleChanges = async (e) => {
         e.preventDefault()
-        let result = await APIConsumer.loginUser(JSON.stringify({mail: e.target.mail.value, password: e.target.password.value}))        
+        let result = await APIConsumer.loginUser(JSON.stringify({mail: e.target.mail.value, password: e.target.password.value,role:"user"}))        
         if(result.hashDescoted){
             store.dispatch({
                 type:"LOGIN",

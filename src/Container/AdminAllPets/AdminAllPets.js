@@ -1,5 +1,6 @@
 import AdminHeader from "../../Components/AdminHeader/AdminHeader"
 import AdminPets from "../../Components/AdminPets/AdminPets"
+import Footer from "../../Components/Footer/Footer"
 
 
 const AdminAllPets = () => {
@@ -7,6 +8,7 @@ const AdminAllPets = () => {
         <>
             <AdminHeader />
             <AdminPets />
+            
         </>
     )
 }

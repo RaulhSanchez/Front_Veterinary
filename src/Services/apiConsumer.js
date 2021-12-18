@@ -18,6 +18,25 @@ export const APIConsumer = {
             console.log(data)
         }
     },
+
+    loginUser: async (data) => {
+        console.log(data)
+        try{
+            //let token = localStorage.getItem('token')
+            let result = await fetch('http://localhost:3001/user/adminlogin', {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: data
+            })
+            result = await result.json() 
+            localStorage.setItem('token', result.hashDescoted)
+            return result 
+        } catch(data){
+            console.log(data)
+        }
+    },
     logOut: async(data) => {
         console.log(data)
         try {
